@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 device = (BluetoothDevice)btDevicesListView.getItemAtPosition(position);
                 btHandler.bond(device);
                 Toast.makeText(MainActivity.this, "Bond complete!", Toast.LENGTH_LONG).show();
+                BluetoothClient client = new BluetoothClient(device);
+                client.run();
             }
         });
     }
